@@ -1,4 +1,4 @@
-package com.example.myapplicationexample.ui.dashboard;
+package com.example.myapplicationexample.ui.stats;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplicationexample.R;
 
-public class DashboardFragment extends Fragment {
+public class StatsFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private StatsViewModel statsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
+        statsViewModel =
+                ViewModelProviders.of(this).get(StatsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_stats, container, false);
+        final TextView textView = root.findViewById(R.id.text_stats);
+        statsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

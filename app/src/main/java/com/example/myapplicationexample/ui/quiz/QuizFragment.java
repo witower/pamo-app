@@ -1,4 +1,4 @@
-package com.example.myapplicationexample.ui.notifications;
+package com.example.myapplicationexample.ui.quiz;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplicationexample.R;
 
-public class NotificationsFragment extends Fragment {
+public class QuizFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private QuizViewModel quizViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
+        quizViewModel =
+                ViewModelProviders.of(this).get(QuizViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_quiz, container, false);
+        final TextView textView = root.findViewById(R.id.text_quiz);
+        quizViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
