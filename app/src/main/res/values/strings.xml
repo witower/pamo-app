@@ -3,4 +3,27 @@
     <string name="title_home">Home</string>
     <string name="title_quiz">Quiz</string>
     <string name="title_stats">Stats</string>
+    <string name="button_go_to_form">Calculate</string>
+    <string name="button_show_recipes">Eat that</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_height">Height</string>
+    <string name="input_height_hint">Put your height here</string>
+    <string name="input_weight_hint">Put your weight here</string>
+    <string name="label_weight">Weight</string>
+    <string name="input_age_hint">Put your age here</string>
+    <string name="label_age">Age</string>
+    <string name="label_gender">Gender</string>
+    <string name="radio_button_female">Female</string>
+    <string name="radio_button_male">Male</string>
+    <string-array name="activities_array">
+        <item>Lying in bed</item>
+        <item>Assembly dev</item>
+        <item>Low activity</item>
+        <item>Moderate activity</item>
+        <item>Active lifestyle</item>
+        <item>Like a Pro</item>
+        <item>Competitive sports</item>
+    </string-array>
 </resources>

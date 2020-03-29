@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,12 +9,145 @@
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:singleLine="true"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_show_recipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/button_show_recipes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_go_to_form" />
+
+    <Button
+        android:id="@+id/button_go_to_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/button_go_to_form"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_show_recipes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/label_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:labelFor="@id/input_height"
+        android:text="@string/label_height"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_height"
+        app:layout_constraintEnd_toStartOf="@+id/input_height"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/input_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_height_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_height"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <TextView
+        android:id="@+id/label_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/input_weight"
+        android:text="@string/label_weight"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_weight"
+        app:layout_constraintStart_toStartOf="@+id/label_height" />
+
+    <EditText
+        android:id="@+id/input_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_weight_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/input_height"
+        app:layout_constraintTop_toBottomOf="@+id/input_height" />
+
+    <TextView
+        android:id="@+id/label_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/input_age"
+        android:text="@string/label_age"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_age"
+        app:layout_constraintStart_toStartOf="@+id/label_weight" />
+
+    <EditText
+        android:id="@+id/input_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_age_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/input_weight"
+        app:layout_constraintTop_toBottomOf="@+id/input_weight" />
+
+    <TextView
+        android:id="@+id/label_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/label_gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_age" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_gender">
+
+        <RadioButton
+            android:id="@+id/radio_button_female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/radio_button_female" />
+
+        <RadioButton
+            android:id="@+id/radio_button_male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/radio_button_male" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
