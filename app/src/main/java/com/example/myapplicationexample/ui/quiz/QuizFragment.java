@@ -23,7 +23,9 @@ public class QuizFragment extends Fragment {
         quizViewModel =
                 ViewModelProviders.of(this).get(QuizViewModel.class);
         View root = inflater.inflate(R.layout.fragment_quiz, container, false);
+
         final TextView textView = root.findViewById(R.id.text_quiz);
+
         quizViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
