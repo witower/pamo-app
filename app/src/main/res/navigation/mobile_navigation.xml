@@ -7,40 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.myapplicationexample.ui.home.HomeFragment"
+        android:name="com.example.myapplicationexample.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_recipeFragment"
-            app:destination="@id/recipeFragment" />
-        <action
-            android:id="@+id/action_navigation_home_to_formFragment"
-            app:destination="@id/formFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_quiz"
-        android:name="com.example.myapplicationexample.ui.quiz.QuizFragment"
+        android:name="com.example.myapplicationexample.QuizFragment"
         android:label="@string/title_quiz"
         tools:layout="@layout/fragment_quiz" />
 
     <fragment
         android:id="@+id/navigation_stats"
-        android:name="com.example.myapplicationexample.ui.stats.StatsFragment"
+        android:name="com.example.myapplicationexample.StatsFragment"
         android:label="@string/title_stats"
         tools:layout="@layout/fragment_stats" />
-    <fragment
-        android:id="@+id/recipeFragment"
-        android:name="com.example.myapplicationexample.ui.home.RecipeFragment"
-        android:label="@string/button_show_recipes"
-        tools:layout="@layout/fragment_recipe" />
-    <fragment
-        android:id="@+id/formFragment"
-        android:name="com.example.myapplicationexample.ui.home.FormFragment"
-        android:label="@string/button_go_to_form"
-        tools:layout="@layout/fragment_form" >
-        <action
-            android:id="@+id/action_formFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
 </navigation>

@@ -47,7 +47,7 @@ public class FormFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         view.findViewById(R.id.button_do_calc)
                 .setOnClickListener(Navigation.createNavigateOnClickListener(
-                        R.id.action_formFragment_to_navigation_home));
+                        R.id.navigation_home));
     }
 
     private void countMe(View view) {

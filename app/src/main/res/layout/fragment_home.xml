@@ -6,63 +6,193 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_show_recipes"
+        android:id="@+id/label_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/button_show_recipes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_go_to_form" />
-
-    <Button
-        android:id="@+id/button_go_to_form"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/button_go_to_form"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_show_recipes"
+        android:labelFor="@id/input_height"
+        android:text="@string/label_height"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_height"
+        app:layout_constraintEnd_toStartOf="@+id/input_height"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/image_portrait"
-        android:layout_width="196dp"
-        android:layout_height="199dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/user_portrait_content_desc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        tools:srcCompat="@tools:sample/avatars[0]" />
-
-    <TextView
-        android:id="@+id/text_greetings"
+    <EditText
+        android:id="@+id/input_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/greetings"
-        android:textSize="24sp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_height_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_height"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/input_weight"
+        android:text="@string/label_weight"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_weight"
+        app:layout_constraintStart_toStartOf="@+id/label_height" />
+
+    <EditText
+        android:id="@+id/input_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_weight_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/input_height"
+        app:layout_constraintTop_toBottomOf="@+id/input_height" />
+
+    <TextView
+        android:id="@+id/label_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/input_age"
+        android:text="@string/label_age"
+        app:layout_constraintBaseline_toBaselineOf="@+id/input_age"
+        app:layout_constraintStart_toStartOf="@+id/label_weight" />
+
+    <EditText
+        android:id="@+id/input_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:contentDescription="@string/input_age_hint"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="3"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/input_weight"
+        app:layout_constraintTop_toBottomOf="@+id/input_weight" />
+
+    <TextView
+        android:id="@+id/label_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/label_gender"
+        app:layout_constraintBottom_toBottomOf="@+id/radio_group_gender"
+        app:layout_constraintStart_toStartOf="@+id/label_age" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/input_age"
+        app:layout_constraintTop_toBottomOf="@+id/input_age">
+
+        <RadioButton
+            android:id="@+id/radio_button_female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/radio_button_female" />
+
+        <RadioButton
+            android:id="@+id/radio_button_male"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:text="@string/radio_button_male" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_do_calc"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:clickable="false"
+        android:text="@string/button_do_calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_portrait" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_gender" />
+
+    <TextView
+        android:id="@+id/label_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_bmi"
+        android:text="@string/label_bmi"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_bmi"
+        app:layout_constraintEnd_toStartOf="@+id/result_bmi"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/result_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="5"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_bmi"
+        app:layout_constraintTop_toBottomOf="@+id/button_do_calc" />
+
+    <TextView
+        android:id="@+id/label_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_calories"
+        android:text="@string/label_calories"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_calories"
+        app:layout_constraintStart_toStartOf="@+id/label_bmi" />
+
+    <EditText
+        android:id="@+id/result_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="5"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/result_bmi"
+        app:layout_constraintTop_toBottomOf="@+id/result_bmi" />
+
+    <TextView
+        android:id="@+id/label_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_recipe"
+        android:text="@string/label_recipe"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_recipe"
+        app:layout_constraintStart_toStartOf="@+id/label_calories" />
+
+    <EditText
+        android:id="@+id/result_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="8"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/result_calories"
+        app:layout_constraintTop_toBottomOf="@+id/result_calories" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
