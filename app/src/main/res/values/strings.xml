@@ -20,6 +20,9 @@
     <string name="input_username_hint">Put your username here</string>
     <string name="label_username">Your name</string>
     <string name="button_do_calculate">Calculate</string>
+    <string name="label_bmi">Your BMI</string>
+    <string name="label_calories">Safe calories</string>
+    <string name="label_recipe">Eat that</string>
     <string-array name="activities_array">
         <item>Lying in bed</item>
         <item>Assembly dev</item>

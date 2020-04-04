@@ -8,70 +8,31 @@
     tools:context=".ui.home.FormFragment">
 
     <TextView
-        android:id="@+id/text_form_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:singleLine="true"
-        android:text="@string/form_header"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/label_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:labelFor="@id/input_username"
-        android:text="@string/label_username"
-        app:layout_constraintBaseline_toBaselineOf="@+id/input_username"
-        app:layout_constraintEnd_toStartOf="@+id/input_username"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/input_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:autofillHints=""
-        android:contentDescription="@string/input_username_hint"
-        android:ems="7"
-        android:inputType="textPersonName"
-        android:maxLength="20"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/label_username"
-        app:layout_constraintTop_toBottomOf="@+id/text_form_header" />
-
-    <TextView
         android:id="@+id/label_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@id/input_height"
         android:text="@string/label_height"
         app:layout_constraintBaseline_toBaselineOf="@+id/input_height"
-        app:layout_constraintStart_toStartOf="@+id/label_username" />
+        app:layout_constraintEnd_toStartOf="@+id/input_height"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/input_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:autofillHints=""
         android:contentDescription="@string/input_height_hint"
         android:ems="5"
         android:inputType="number"
         android:maxLength="3"
         android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="@+id/input_username"
-        app:layout_constraintTop_toBottomOf="@+id/input_username" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_height"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/label_weight"
@@ -123,33 +84,32 @@
         android:id="@+id/label_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/label_gender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_age" />
+        app:layout_constraintBottom_toBottomOf="@+id/radio_group_gender"
+        app:layout_constraintStart_toStartOf="@+id/label_age" />
 
     <RadioGroup
         android:id="@+id/radio_group_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_gender">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/input_age"
+        app:layout_constraintTop_toBottomOf="@+id/input_age">
 
         <RadioButton
             android:id="@+id/radio_button_female"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/radio_button_female" />
 
         <RadioButton
             android:id="@+id/radio_button_male"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="0dp"
             android:text="@string/radio_button_male" />
     </RadioGroup>
 
@@ -158,13 +118,82 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:clickable="false"
         android:text="@string/button_do_calculate"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_group_gender" />
+
+    <TextView
+        android:id="@+id/label_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_bmi"
+        android:text="@string/label_bmi"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_bmi"
+        app:layout_constraintEnd_toStartOf="@+id/result_bmi"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/result_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="5"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_bmi"
+        app:layout_constraintTop_toBottomOf="@+id/button_do_calc" />
+
+    <TextView
+        android:id="@+id/label_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_calories"
+        android:text="@string/label_calories"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_calories"
+        app:layout_constraintStart_toStartOf="@+id/label_bmi" />
+
+    <EditText
+        android:id="@+id/result_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="5"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/result_bmi"
+        app:layout_constraintTop_toBottomOf="@+id/result_bmi" />
+
+    <TextView
+        android:id="@+id/label_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/result_recipe"
+        android:text="@string/label_recipe"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result_recipe"
+        app:layout_constraintStart_toStartOf="@+id/label_calories" />
+
+    <EditText
+        android:id="@+id/result_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:editable="false"
+        android:ems="8"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/result_calories"
+        app:layout_constraintTop_toBottomOf="@+id/result_calories" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
