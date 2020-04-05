@@ -23,6 +23,9 @@
     <string name="label_bmi">Your BMI</string>
     <string name="label_calories">Safe calories</string>
     <string name="label_recipe">Eat that</string>
+    <string name="snack_wrong_data">Wrong or missing data</string>
+    <string name="recipe_salad">Salad</string>
+    <string name="recipe_chips"><![CDATA[\"Fish&Chips \"]]></string>
     <string-array name="activities_array">
         <item>Lying in bed</item>
         <item>Assembly dev</item>
