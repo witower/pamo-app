@@ -1,9 +1,13 @@
 package com.example.myapplicationexample;
 
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -13,9 +17,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
-import com.example.myapplicationexample.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DecimalFormat;
@@ -32,6 +36,8 @@ public class HomeFragment extends Fragment {
     private boolean isMale;
     private boolean isFemale;
 
+    private Bundle recipeArgs = new Bundle();
+
     private EditText heightInput;
     private EditText weightInput;
     private EditText ageInput;
@@ -40,12 +46,10 @@ public class HomeFragment extends Fragment {
     private RadioButton maleRadio;
     private TextView resultBmiTextView;
     private TextView resultCaloriesTextView;
-    private TextView resultRecipeTextView;
-
-    private TextView testTextView;
 
     private Snackbar snacky;
-
+    private Button doCalcButton;
+    private Button gotoRecipeButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,7 +59,6 @@ public class HomeFragment extends Fragment {
 
         resultBmiTextView = root.findViewById(R.id.result_bmi);
         resultCaloriesTextView = root.findViewById(R.id.result_calories);
-        resultRecipeTextView = root.findViewById(R.id.result_recipe);
 
         heightInput = root.findViewById(R.id.input_height);
         weightInput = root.findViewById(R.id.input_weight);
@@ -64,26 +67,35 @@ public class HomeFragment extends Fragment {
         femaleRadio = root.findViewById(R.id.radio_button_female);
         maleRadio = root.findViewById(R.id.radio_button_male);
 
-        Button doCalcButton = root.findViewById(R.id.button_do_calc);
+        doCalcButton = root.findViewById(R.id.button_do_calc);
         doCalcButton.setOnClickListener(onDoCalcButtonClickListener);
 
+        gotoRecipeButton = root.findViewById(R.id.button_goto_recipe);
+        gotoRecipeButton.setOnClickListener(
+                Navigation.createNavigateOnClickListener(
+                        R.id.action_navigation_home_to_recipeFragment, recipeArgs));
 
-    return root;
+        Log.println(Log.INFO,"ww","onCreateView(): " + height);
+
+        return root;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         snacky = Snackbar.make(view, R.string.app_name, Snackbar.LENGTH_LONG);
+
+        Log.println(Log.INFO,"ww","onViewCreated(): " + height);
     }
 
     private final View.OnClickListener onDoCalcButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            hideKeyboard();
             calculate();
         }
     };
 
-    private int safeAlikeParse(String s) {
+    private int almostSafeParse(String s) {
         int r;
         try {
             r = Integer.parseInt(s);
@@ -95,9 +107,9 @@ public class HomeFragment extends Fragment {
     }
 
     private boolean getFormData() {
-        height = safeAlikeParse(heightInput.getText().toString());
-        weight = safeAlikeParse(weightInput.getText().toString());
-        age = safeAlikeParse(ageInput.getText().toString());
+        height = almostSafeParse(heightInput.getText().toString());
+        weight = almostSafeParse(weightInput.getText().toString());
+        age = almostSafeParse(ageInput.getText().toString());
         isFemale = femaleRadio.isChecked();
         isMale = maleRadio.isChecked();
 
@@ -105,29 +117,28 @@ public class HomeFragment extends Fragment {
     }
 
     private void clearResults(){
-        testTextView.setText("");
         resultBmiTextView.setText("");
         resultCaloriesTextView.setText("");
-        resultRecipeTextView.setText("");
+        recipeArgs.clear();
     }
 
     private void calculate() {
-        calcBmi();
         if (getFormData()){
             calcBmi();
             calcCalories();
-            showRecipe();
+            gotoRecipeButton.setEnabled(true);
         }
         else {
             snacky.setText(R.string.snack_wrong_data).show();
             clearResults();
+            gotoRecipeButton.setEnabled(false);
         }
-
     }
 
     private void calcBmi() {
         double heightMeters = (double)height/100;
         bmi = weight / (heightMeters * heightMeters);
+        recipeArgs.putFloat("bmi", (float)bmi);
         resultBmiTextView.setText(decimalFormatTwoPoints.format(bmi));
     }
 
@@ -143,14 +154,84 @@ public class HomeFragment extends Fragment {
         resultCaloriesTextView.setText(decimalFormatTwoPoints.format(calories));
     }
 
-    private void showRecipe() {
-        if (bmi > 25) {
-            resultRecipeTextView.setText(R.string.recipe_salad);
+    private void hideKeyboard() {
+        try {
+            FragmentActivity activity = getActivity();
+            InputMethodManager inputManager = (InputMethodManager) (activity != null ? activity.getSystemService(Context.INPUT_METHOD_SERVICE) : null);
+            if (inputManager != null) {
+                inputManager.hideSoftInputFromWindow((null == activity.getCurrentFocus()) ? null : activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
         }
-        else {
-            resultRecipeTextView.setText(R.string.recipe_chips);
-        }
-
+        catch (Exception ignored) {}
     }
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        Log.println(Log.INFO, "ww", "onCreate(): " + height);
+    }
+
+    @Override
+    public void onActivityCreated (Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.println(Log.INFO,"ww","onActivityCreated(): " + height);
+    }
+
+    @Override
+    public void onConfigurationChanged (@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.println(Log.INFO,"ww","onConfigurationChanged(): " + height);
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.println(Log.INFO,"ww","onViewStateRestored(): " + height);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.println(Log.INFO,"ww","onStart(): " + height);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        gotoRecipeButton.setEnabled(getFormData());
+        Log.println(Log.INFO,"ww","onResume(): " + height + " recipeReady: " + getFormData());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.println(Log.INFO,"ww","onPause(): " + height);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.println(Log.INFO,"ww","onStop(): " + height);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.println(Log.INFO,"ww","onDestroyView(): " + height);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.println(Log.INFO,"ww","onDestroy(): " + height);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.println(Log.INFO,"ww","onDetach(): " + height);
+    }
 }

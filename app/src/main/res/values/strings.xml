@@ -4,8 +4,7 @@
     <string name="title_quiz">Quiz</string>
     <string name="title_stats">Stats</string>
     <string name="button_go_to_form">Calculate</string>
-    <string name="button_show_recipes">Eat that</string>
-    <string name="form_header">Confession time!</string>
+    <string name="button_show_recipes">Show recipe</string>
     <string name="label_height">Height</string>
     <string name="input_height_hint">Put your height here</string>
     <string name="input_weight_hint">Put your weight here</string>
@@ -22,17 +21,9 @@
     <string name="button_do_calculate">Calculate</string>
     <string name="label_bmi">Your BMI</string>
     <string name="label_calories">Safe calories</string>
-    <string name="label_recipe">Eat that</string>
     <string name="snack_wrong_data">Wrong or missing data</string>
     <string name="recipe_salad">Salad</string>
-    <string name="recipe_chips"><![CDATA[\"Fish&Chips \"]]></string>
-    <string-array name="activities_array">
-        <item>Lying in bed</item>
-        <item>Assembly dev</item>
-        <item>Low activity</item>
-        <item>Moderate activity</item>
-        <item>Active lifestyle</item>
-        <item>Like a Pro</item>
-        <item>Competitive sports</item>
-    </string-array>
+    <string name="recipe_chips">Fish &amp; Chips</string>
+    <string name="loading">Loading…</string>
+    <string name="title_recipe">Recipe just for you!</string>
 </resources>
