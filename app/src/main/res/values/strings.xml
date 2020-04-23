@@ -26,4 +26,8 @@
     <string name="recipe_chips">Fish &amp; Chips</string>
     <string name="loading">Loading…</string>
     <string name="title_recipe">Recipe just for you!</string>
+    <string name="question">Question %1$d of %2$d</string>
+    <string name="quiz_end_header">This is the end</string>
+    <string name="quiz_summary">It took you %1$d shots to answer %2$d questions.</string>
+    <string name="quiz_restart">Restart quiz</string>
 </resources>

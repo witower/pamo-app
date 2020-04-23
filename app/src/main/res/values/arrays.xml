@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="questions_list">
+        <item>How long does the novel coronavirus survive outside the body?</item>
+        <item>What’s more important for preventing infection?</item>
+        <item>What percentage of people confirmed to have Covid-19 develop mild or moderate symptoms?</item>
+        <item>What is a fomite?</item>
+        <item>What’s a safe distance to stay apart from someone who’s sick?﻿</item>
+        <item>How much money have the world’s governments and central banks pledged in stimulus to counter the economic shock of the virus?</item>
+    </string-array>
+    <string-array name="q1">
+        <item>Several hours to days</item>
+        <item>A week in the air and on surfaces</item>
+        <item>Up to a 2.5 weeks</item>
+    </string-array>
+    <string-array name="q2">
+        <item>Frequent hand-washing</item>
+        <item>Wearing a face mask</item>
+        <item>Praying</item>
+    </string-array>
+    <string-array name="q3">
+        <item>80%</item>
+        <item>20%</item>
+        <item>40%</item>
+    </string-array>
+    <string-array name="q4">
+        <item>A contaminated object or surface</item>
+        <item>A hospital-grade disinfectant</item>
+        <item>a disease carrier</item>
+    </string-array>
+    <string-array name="q5">
+        <item>At least 3 feet (1 meter)</item>
+        <item>At least 1 foot (30 cm)</item>
+        <item>At list 10 feet (3 meters)</item>
+    </string-array>
+    <string-array name="q6">
+        <item>At least $3 trillion</item>
+        <item>$1 trillion</item>
+        <item>Almost $2 trillion</item>
+    </string-array>
+</resources>
