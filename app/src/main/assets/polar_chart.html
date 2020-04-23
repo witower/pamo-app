@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <script src="Chart.bundle.min.js"></script>
+</head>
+<body>
+<canvas id="myChart" width="720" height="720"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+        labels: ['USA', 'Spain', 'Italy', 'France', 'Germany', 'Poland'],
+        datasets: [{
+            label: '# of Total Recovered',
+            data: [84050, 85915, 54543, 40657, 103300, 1740],
+            backgroundColor: ["#DAF7A6"," #FFC300"," #FF5733","#C70039", "#900C3F", "#581845"]
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        title: {
+            display: true,
+            text: 'Coronovirus total recovered per country'
+        }
+    }
+});
+</script>
+</body>
+</html>
