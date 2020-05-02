@@ -7,7 +7,7 @@
 
 
     <Button
-        android:id="@+id/button_show_polar_chart"
+        android:id="@+id/btnShowPolarChart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -16,10 +16,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_show_pie_chart" />
+        app:layout_constraintStart_toEndOf="@+id/btnShowPieChart" />
 
     <Button
-        android:id="@+id/button_show_bar_chart"
+        android:id="@+id/btnShowBarChart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -27,31 +27,31 @@
         android:layout_marginBottom="16dp"
         android:text="@string/bar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_show_pie_chart"
+        app:layout_constraintEnd_toStartOf="@+id/btnShowPieChart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_show_pie_chart"
+        android:id="@+id/btnShowPieChart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/pie"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_show_polar_chart"
+        app:layout_constraintEnd_toStartOf="@+id/btnShowPolarChart"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_show_bar_chart" />
+        app:layout_constraintStart_toEndOf="@+id/btnShowBarChart" />
 
     <WebView
-        android:id="@+id/web_view_chart"
+        android:id="@+id/webViewChart"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_show_pie_chart"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowPieChart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
